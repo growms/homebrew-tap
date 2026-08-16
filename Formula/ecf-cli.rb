@@ -1,29 +1,29 @@
 # Generee par scripts/render-homebrew-formula.sh — ne pas editer a la main.
-# Les empreintes proviennent du SHA256SUMS publie avec la release v0.10.1.
+# Les empreintes proviennent du SHA256SUMS publie avec la release v0.10.2.
 class EcfCli < Formula
   desc "Manage remote terminal sessions for command-line coding tools"
   homepage "https://code-fleet.evo.camp"
-  version "0.10.1"
+  version "0.10.2"
 
   on_macos do
     on_arm do
-      url "https://github.com/growms/ecf-releases/releases/download/v0.10.1/ecf-cli-darwin-arm64"
-      sha256 "c56885d93508a24c1cecca0129b9fa6fc41f6011e38a39a4ae140653a49922a4"
+      url "https://github.com/growms/ecf-releases/releases/download/v0.10.2/ecf-cli-darwin-arm64"
+      sha256 "a0f821196be60fdbd80009de3dd01e9da95115385c0fda37be9622a07198900b"
     end
     on_intel do
-      url "https://github.com/growms/ecf-releases/releases/download/v0.10.1/ecf-cli-darwin-amd64"
-      sha256 "706a8fe3d7142357a3825c220987fa7b6cd25905a6b9f32d8f513bdcfae2370e"
+      url "https://github.com/growms/ecf-releases/releases/download/v0.10.2/ecf-cli-darwin-amd64"
+      sha256 "191b1297219d1d6f22a2b00bdd0750a2f866fa8c5d5429cf9ca4c8268afc4484"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/growms/ecf-releases/releases/download/v0.10.1/ecf-cli-linux-arm64"
-      sha256 "f5f20f37f1f73a52ea20f22e6b91c2dad962ffc08b17bfce3f2344d00780f6d2"
+      url "https://github.com/growms/ecf-releases/releases/download/v0.10.2/ecf-cli-linux-arm64"
+      sha256 "775157aac2020cb502df44c379d36585222c9591610f369ab23c7a26b0d3d12b"
     end
     on_intel do
-      url "https://github.com/growms/ecf-releases/releases/download/v0.10.1/ecf-cli-linux-amd64"
-      sha256 "a245ded8b6a8ad3709704768158ab432be3f6bc78eda9fbd9a02001c06416c57"
+      url "https://github.com/growms/ecf-releases/releases/download/v0.10.2/ecf-cli-linux-amd64"
+      sha256 "27ae42d5c2e15f080927866dd898d2223ab719eb9f1d98bf01af321e1ff511ff"
     end
   end
 
@@ -37,6 +37,13 @@ class EcfCli < Formula
     # (#{opt_bin}/ecf-daemon), stable d'une version a l'autre — c'est le motif
     # de cloudflared, et c'est ce qui fait de "brew upgrade" une vraie mise a
     # jour du daemon plutot que d'un exemplaire que personne ne lance.
+    # bin.install PRESERVE LE MODE DE LA SOURCE, et le fichier telecharge par
+    # curl est en 0644 : c'est Homebrew qui rend bin/ executable APRES
+    # def install. Sans ce chmod, l'appel ci-dessous echoue en EACCES chez
+    # TOUS les utilisateurs — et Homebrew presente l'echec comme un probleme de
+    # Command Line Tools, ce qui envoie chercher ailleurs. Constate sur la
+    # release 0.10.1.
+    chmod 0755, bin/"ecf-cli"
     system bin/"ecf-cli", "extract-daemon", bin/"ecf-daemon"
   end
 
