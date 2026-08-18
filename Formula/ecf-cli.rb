@@ -1,29 +1,29 @@
 # Generee par scripts/render-homebrew-formula.sh — ne pas editer a la main.
-# Les empreintes proviennent du SHA256SUMS publie avec la release v0.10.2.
+# Les empreintes proviennent du SHA256SUMS publie avec la release v0.10.4.
 class EcfCli < Formula
   desc "Manage remote terminal sessions for command-line coding tools"
   homepage "https://code-fleet.evo.camp"
-  version "0.10.2"
+  version "0.10.4"
 
   on_macos do
     on_arm do
-      url "https://github.com/growms/ecf-releases/releases/download/v0.10.2/ecf-cli-darwin-arm64"
-      sha256 "a0f821196be60fdbd80009de3dd01e9da95115385c0fda37be9622a07198900b"
+      url "https://github.com/growms/ecf-releases/releases/download/v0.10.4/ecf-cli-darwin-arm64"
+      sha256 "4cd97afd02b5507b4fc643cd3bb04472d4a6aac40cfdd2887694add75cb3f0c3"
     end
     on_intel do
-      url "https://github.com/growms/ecf-releases/releases/download/v0.10.2/ecf-cli-darwin-amd64"
-      sha256 "191b1297219d1d6f22a2b00bdd0750a2f866fa8c5d5429cf9ca4c8268afc4484"
+      url "https://github.com/growms/ecf-releases/releases/download/v0.10.4/ecf-cli-darwin-amd64"
+      sha256 "b1223b757a40dc99f78b421524a000b78ccea3cf9de3dd8bdf58de649a63f9f5"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/growms/ecf-releases/releases/download/v0.10.2/ecf-cli-linux-arm64"
-      sha256 "775157aac2020cb502df44c379d36585222c9591610f369ab23c7a26b0d3d12b"
+      url "https://github.com/growms/ecf-releases/releases/download/v0.10.4/ecf-cli-linux-arm64"
+      sha256 "9bf582c7a5dd6c5e3f52770726a2185b661ca3c3dc515934f98a6c536893c39a"
     end
     on_intel do
-      url "https://github.com/growms/ecf-releases/releases/download/v0.10.2/ecf-cli-linux-amd64"
-      sha256 "27ae42d5c2e15f080927866dd898d2223ab719eb9f1d98bf01af321e1ff511ff"
+      url "https://github.com/growms/ecf-releases/releases/download/v0.10.4/ecf-cli-linux-amd64"
+      sha256 "c8bf04f2bd31ce485dc4db57d3d7f4c288066553322bcb392074d416f8fa7fb2"
     end
   end
 
